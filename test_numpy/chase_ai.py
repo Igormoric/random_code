@@ -152,6 +152,29 @@ def mutate(weights, mutation_rate):
         new_weights.append(w)
     return new_weights
 
+def restart_generation(population):
+    global steps
+    steps=0
+    global generation
+    generation += 1
+    print(f"Generation: {generation}")
+
+    x = random.randint(0, SCREEN_WIDTH)
+    y = random.randint(0, SCREEN_HEIGHT)
+
+    population.sort(key=lambda x: x.score, reverse=True)
+    top_performers = population[:5]
+
+    new_population = top_performers.copy()
+    while len(new_population) < POPULATION_SIZE:
+        parent1, parent2 = random.sample(top_performers, 2)
+        child_weights = crossover(parent1.weights, parent2.weights)
+        child_weights = mutate(child_weights, MUTATION_RATE)
+        new_population.append(AICircle(x,y,child_weights))
+
+    return new_population
+
+
 # Função principal
 def main():
     user_circle = UserCircle()
