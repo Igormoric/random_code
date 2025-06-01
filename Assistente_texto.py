@@ -1,6 +1,8 @@
 # Assistente Virtual Bilíngue com Edição de Código Python
 # Requisitos: Python 3.8+ (recomendado para AST), SpeechRecognition, PyAudio, pyttsx3, NLTK
 #
+# Escrito por Gemini 2.5 pro
+#
 # Instalação de dependências no Ubuntu:
 # 1. Python 3 (sudo apt install python3 python3-pip)
 # 2. PortAudio (sudo apt install portaudio19-dev)
